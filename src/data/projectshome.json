@@ -1,0 +1,16 @@
+[
+    {
+        "id":1,
+        "maintitle":"What we've done!",
+        "title":"Our Projects",
+         "img":"../assets/projects/p1.jpg"
+    },
+    {
+        "id":2,
+        "img":"../assets/projects/p2.jpg"
+    },
+    {
+        "id":3,
+        "img":"../assets/projects/p3.jpg"
+    }
+]

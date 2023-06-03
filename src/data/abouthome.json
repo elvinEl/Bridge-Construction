@@ -1,0 +1,11 @@
+[
+  {
+    "id": 1,
+    "maintitle":"About Us",
+    "title": "Leading Architect Agency!",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque rerum minus commodi saepe hic aperiam nostrum nobis dolorem eum aliquid odit, facilis, dolor quo tempore, nam at eligendi vitae cum.",
+    "img": "../assets/home/h1.jpg",
+    "name":"Tural Mammadli",
+    "job":"President"
+  }
+]
