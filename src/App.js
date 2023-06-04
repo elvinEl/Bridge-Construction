@@ -9,7 +9,6 @@ import {
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
-import Works from "./pages/Works";
 import Contact from "./pages/Contact";
 // LAYOUTS
 import RootLayout from "./layouts/RootLayout";
@@ -21,7 +20,6 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/works" element={<Works />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
     )

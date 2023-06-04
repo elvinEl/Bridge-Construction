@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "number": 1,
+    "title": "Concept.",
+    "description": "Make your life super comfortable with a smart house that is constantly alerted.",
+    "img": ""
+  },
+  {
+    "id": 2,
+    "number": 2,
+    "title": "Development.",
+    "description": "Smart use of space can highly affect your life. When everything organized, there's no need for large spaces.",
+    "img": ""
+  },
+  {
+    "id": 3,
+    "number":3,
+    "title": "Testing.",
+    "description": "There's no place like home and better designed home means higher quality life!",
+    "img": ""
+  }
+]

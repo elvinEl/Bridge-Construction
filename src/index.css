@@ -1,3 +1,105 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
+
+.bg-image {
+  background-image: url("../public/assets/home/h2.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.bg-image-about {
+  background-image: url("../public/assets/about/a1.jpg");
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+img.inactive {
+  transition: transform 1.5s ease;
+  transform: scale(1.2);
+}
+
+img.active {
+  transition: transform 1.5s ease;
+  transform: scale(1);
+}
+
+.container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.text {
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  animation: textSlide 900ms linear forwards;
+}
+
+@keyframes textSlide {
+  0% {
+    bottom: -100px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
+
+.background {
+  width: 0;
+  height: 100%;
+  background-color: blue;
+  animation: backgroundExpand 500ms linear forwards;
+}
+
+@keyframes backgroundExpand {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.quadrangle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  height: 330px;
+  border: 7px solid white;
+}
+
+.elvin {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+}
+a.active::after {
+  content: "";
+  color: black;
+  background-color: red;
+  width: 30px;
+  height: 3px;
+}
+a.active{
+  color: black;
+}

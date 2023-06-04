@@ -8,7 +8,7 @@ function ProjectsHome() {
     setProjectsHome(projectsData);
   });
   return (
-    <div>
+    <div className="grid grid-cols-3">
       {projectsHome.map((projectHome) => (
         <ProjectsHomeItem key={projectHome.id} projectHome={projectHome} />
       ))}
