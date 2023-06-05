@@ -4,7 +4,7 @@ import { AiFillCaretRight } from "react-icons/ai";
 function AboutHomeItem({ aboutHome }) {
   return (
     <>
-      <div className="grid grid-cols-2 max-w-[80%] gap-12 mx-auto text-[#6c757d]" >
+      <div className="grid grid-cols-2 gap-12  text-[#6c757d]" >
         <div className="col-span-1" data-aos="fade-right" >
           <p className="text-[1.25rem]">{aboutHome.maintitle}</p>
           <p className="text-black font-bold text-[2.5rem] mb-8 ">

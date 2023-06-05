@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Maya Angelo",
+    "img": "../assets/team/t1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Mamad Golabi",
+    "img": "../assets/team/t2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Maya Angelo",
+    "img": "../assets/team/t3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Maya Angelo",
+    "img": "../assets/team/t4.jpg"
+  }
+]

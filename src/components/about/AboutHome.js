@@ -8,10 +8,18 @@ function AboutHome() {
     setAboutsHome(aboutData);
   });
   return (
-    <div className="mt-12">
+    <div className=" max-w-[80%] mx-auto">
+    <div className="mt-12 ">
       {aboutsHome.map((aboutHome) => (
         <AboutHomeItem aboutHome={aboutHome} key={aboutHome.id} />
       ))}
+    </div>
+    <div className="flex justify-end mt-8">
+        <button className="text-white bg-[#343a40] hover:bg-[#23272b] text-[14px] duration-300 px-4 py-1">
+          Bütün Lahiyələri Gör
+        </button>
+      </div>
+
     </div>
   );
 }
