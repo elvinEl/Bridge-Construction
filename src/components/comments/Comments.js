@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
@@ -8,32 +8,63 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 const Comments = () => {
   const slideData = [
     <div className="bg-white py-12 px-4  ">
-      <p className="text-[#6c757d] font-light pb-2">Who has ever done this before? Masonic is phenominal.</p>
-      <p>Samir Aliyev</p>
+    <p className="text-[#6c757d] font-light pb-2">
+      Who has ever done this before? Masonic is phenominal.
+    </p>
+    <p>Samir Aliyev</p>
     </div>,
     <div className="bg-white py-12 px-4 ">
-      <p className="text-[#6c757d] font-light pb-2">Who has ever done this before? Masonic is phenominal.</p>
-      <p>Samir Aliyev</p>
+    <p className="text-[#6c757d] font-light pb-2">
+      Who has ever done this before? Masonic is phenominal.
+    </p>
+    <p>Samir Aliyev</p>
     </div>,
     <div className="bg-white py-12 px-4">
-      <p className="text-[#6c757d] font-light pb-2">Who has ever done this before? Masonic is phenominal.</p>
-      <p>Samir Aliyev</p>
+    <p className="text-[#6c757d] font-light pb-2">
+      Who has ever done this before? Masonic is phenominal.
+    </p>
+    <p>Samir Aliyev</p>
     </div>,
     <div className="bg-white py-12 px-4">
-      <p className="text-[#6c757d] font-light pb-2">Who has ever done this before? Masonic is phenominal.</p>
-      <p>Samir Aliyev</p>
+    <p className="text-[#6c757d] font-light pb-2">
+      Who has ever done this before? Masonic is phenominal.
+    </p>
+    <p>Samir Aliyev</p>
     </div>,
     <div className="bg-white py-12 px-4">
-      <p className="text-[#6c757d] font-light pb-2">Who has ever done this before? Masonic is phenominal.</p>
-      <p>Samir Aliyev</p>
+    <p className="text-[#6c757d] font-light pb-2">
+      Who has ever done this before? Masonic is phenominal.
+    </p>
+    <p>Samir Aliyev</p>
     </div>,
     <div className="bg-white py-12 px-4">
-      <p className="text-[#6c757d] font-light pb-2">Who has ever done this before? Masonic is phenominal.</p>
-      <p>Samir Aliyev</p>
+    <p className="text-[#6c757d] font-light pb-2">
+      Who has ever done this before? Masonic is phenominal.
+    </p>
+    <p>Samir Aliyev</p>
     </div>,
   ];
 
+  const [slidesPerView, setSlidesPerView] = useState(3);
   const [swiper, setSwiper] = useState(null);
+
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      if (window.innerWidth >= 1024) {
+        setSlidesPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
+
+    window.addEventListener("resize", updateSlidesPerView);
+
+    return () => {
+      window.removeEventListener("resize", updateSlidesPerView);
+    };
+  }, []);
 
   const handleMouseEnter = () => {
     if (swiper) {
@@ -57,7 +88,7 @@ const Comments = () => {
       <div className="max-w-[80%] mx-auto pb-8">
         <Swiper
           spaceBetween={30}
-          slidesPerView={3}
+          slidesPerView={slidesPerView}
           loop={true}
           autoplay={{ delay: 2000 }}
           navigation
@@ -80,3 +111,4 @@ const Comments = () => {
 };
 
 export default Comments;
+

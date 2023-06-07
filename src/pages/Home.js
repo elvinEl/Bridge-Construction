@@ -1,9 +1,9 @@
 import React from "react";
 import AboutHome from "../components/about/AboutHome";
+import Certifcate from "../components/certifcates/Certifcate";
 import Comments from "../components/comments/Comments";
 import ContactHome from "../components/contact/ContactHome";
 import HeroSection from "../components/HeroSection";
-import ProjectsHome from "../components/projects/ProjectsHome";
 import ProjectsOur from "../components/projects/ProjectsOur";
 import ServicesHome from "../components/services/ServicesHome";
 
@@ -12,10 +12,10 @@ function Home() {
     <div>
       <HeroSection />
       <AboutHome />
-      <ProjectsHome />
       <ProjectsOur />
       <Comments />
       <ServicesHome />
+      <Certifcate/>
       <ContactHome />
     </div>
   );

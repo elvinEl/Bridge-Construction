@@ -3,8 +3,8 @@ import React from "react";
 function Form() {
   return (
     <div className="grid grid-cols-2 max-w-[80%] mx-auto mt-20 gap-8">
-      <div className="col-span-1" data-aos="fade-right">
-        <img src="./assets/contact/c2.jpg" alt="" />
+      <div className="col-span-1 h-[395px]" data-aos="fade-right">
+        <img className="w-full h-full" src="./assets/contact/c2.jpg" alt="" />
       </div>
       <div className="col-span-1" data-aos="fade-left">
         <p className="text-[1.25rem] text-[#6c757d]">Send Message</p>

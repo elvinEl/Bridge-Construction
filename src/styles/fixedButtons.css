@@ -1,0 +1,17 @@
+.scroll-to-top {
+    background-color: rgba(53, 113, 255, 50%) !important;
+    right: 22px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    border-radius: 50% !important;
+    height: 55px !important;
+    width: 55px !important;
+  }
+  .scroll-to-top:hover {
+    background-color: rgba(53, 113, 255, 1) !important;
+    transition: 500ms;
+  }
+  .scroll-to-top{
+    transition: 500ms;
+  }

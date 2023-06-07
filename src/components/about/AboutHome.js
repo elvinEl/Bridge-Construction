@@ -8,7 +8,7 @@ function AboutHome() {
     setAboutsHome(aboutData);
   });
   return (
-    <div className=" max-w-[80%] mx-auto">
+    <div className=" max-w-[80%] mx-auto max-md:max-w-[95%]">
     <div className="mt-12 ">
       {aboutsHome.map((aboutHome) => (
         <AboutHomeItem aboutHome={aboutHome} key={aboutHome.id} />

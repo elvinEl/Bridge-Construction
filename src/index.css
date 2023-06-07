@@ -24,6 +24,12 @@
   width: 100%;
   background-repeat: no-repeat;
 }
+.bg-image-services {
+  background-image: url("../public/assets/services/s1.jpg");
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
 .bg-image-comments{
   background-image: url("../public/assets/home/h3.jpg");
   height: 100%;
@@ -122,6 +128,7 @@ a.active::after {
 a.active{
   color: black;
 }
+
 .attack{
   background-image: url("../public/assets/about/a3.jpg");
   background-attachment: fixed;
@@ -140,4 +147,20 @@ a.active{
   height: 100%;
   mix-blend-mode: multiply;
 
+}
+
+
+
+@media screen and (max-width:768px) {
+  /* a.active{
+    color: white;
+  } */
+  .bg-image{
+    background-size: cover;
+    background-repeat: repeat;
+  }
+  .bg-image-comments{
+    background-repeat: repeat;
+    background-size: cover;
+  }
 }

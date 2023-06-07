@@ -4,6 +4,8 @@ import Features from "../components/AboutComponents/features/Features";
 import Methology from "../components/AboutComponents/methodology/Methology";
 import Misson from "../components/AboutComponents/missions/Misson";
 import Team from "../components/AboutComponents/team/Team";
+import Certifcate from '../components/certifcates/Certifcate'
+import Fixed from '../components/AboutComponents/fixedContent/Fixed'
 
 function About() {
   return (
@@ -23,6 +25,8 @@ function About() {
       <Features />
       <Clients />
       <Team/>
+      <Certifcate/>
+      <Fixed/>
     </div>
   );
 }
