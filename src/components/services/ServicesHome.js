@@ -24,8 +24,9 @@ function ServicesHome() {
       >
         {Object.keys(slice).map((key) => (
           <Link to={`services/${servicesRedux[key].general_key}`}>
+            {/* <img src={servicesRedux[key].image} alt="" /> */}
             <p className="font-bold text-black text-[17px] mb-2">{servicesRedux[key].title}</p>
-            <p className="text-[#6c757d]" dangerouslySetInnerHTML={{__html:servicesRedux[key].description && servicesRedux[key].description}}></p>
+            <p className="text-[#6c757d]" dangerouslySetInnerHTML={{__html:servicesRedux[key].description}}></p>
           </Link>
         ))}
       </div>

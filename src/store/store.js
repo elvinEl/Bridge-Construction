@@ -1,14 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import serviceReducer from "./services/serviceSlice";
 import serviceDetailReducer from "./services/serviceDetailSlice";
-import projectReducer from "../store/projects/projectsSlice";
-// import projectDetailReducer from "../store/projects/projectsDetailSlice";
+import aboutReducer from "./about/aboutSlice";
+import partnersReducer from './partners/partnersSlice'
 
 export default configureStore({
   reducer: {
     service: serviceReducer,
     serviceDetail: serviceDetailReducer,
-    project: projectReducer,
-    // projectDetail: projectDetailReducer,
+    about: aboutReducer,
+    partners:partnersReducer
   },
 });

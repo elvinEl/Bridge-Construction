@@ -1,30 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchProjects } from "./projectsActions";
+import { fetchAbout } from "./aboutActions";
 
-export const projectSlice = createSlice({
-  name: "project",
+export const aboutSlice = createSlice({
+  name: "about",
   initialState: {
-    projectData: [],
+    aboutData: [],
     isLoading: false,
     isSuccess: false,
     errorMessage: "",
   },
   reducers: {},
   extraReducers: {
-    [fetchProjects.pending]: (state) => {
+    [fetchAbout.pending]: (state) => {
       state.isLoading = true;
     },
-    [fetchProjects.fulfilled]: (state, { payload }) => {
+    [fetchAbout.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.isSuccess = true;
-      state.projectData = payload;
+      state.aboutData = payload;
     },
-    [fetchProjects.rejected]: (state, { payload }) => {
+    [fetchAbout.rejected]: (state, { payload }) => {
       state.isLoading = false;
       state.isSuccess = false;
       state.errorMessage = payload;
     },
   },
 });
-
-export default projectSlice.reducer;
+export default aboutSlice.reducer;

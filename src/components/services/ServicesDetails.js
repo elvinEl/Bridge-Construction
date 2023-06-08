@@ -8,7 +8,6 @@ function ServicesDetails() {
   const { i18n } = useTranslation();
   const { general_key } = useParams();
   const serviceR = useSelector((state) => state.service.serviceData);
-  console.log(serviceR);
   const dispatch = useDispatch();
   const serviceDetailRedux = useSelector(
     (state) => state.serviceDetail.serviceDataDetail
@@ -19,10 +18,15 @@ function ServicesDetails() {
       serviceR && serviceR.find((item) => item.general_key == general_key);
     const language = i18n.language;
     dispatch(fetchServicesById({ dataS, language }));
-  }, [dispatch, i18n.language,general_key]);
+  }, [dispatch, i18n.language, general_key]);
 
   return (
-    <div>{serviceDetailRedux.content && serviceDetailRedux.content.title}</div>
+    <div>
+      <p>{serviceDetailRedux.content && serviceDetailRedux.content.title}</p>
+      <p>
+        {serviceDetailRedux.content && serviceDetailRedux.content.description}
+      </p>
+    </div>
   );
 }
 
