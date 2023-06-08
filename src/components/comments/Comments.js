@@ -8,40 +8,40 @@ SwiperCore.use([Autoplay, Pagination, Navigation]);
 const Comments = () => {
   const slideData = [
     <div className="bg-white py-12 px-4  ">
-    <p className="text-[#6c757d] font-light pb-2">
-      Who has ever done this before? Masonic is phenominal.
-    </p>
-    <p>Samir Aliyev</p>
+      <p className="text-[#6c757d] font-light pb-2">
+        Who has ever done this before? Masonic is phenominal.
+      </p>
+      <p>Samir Aliyev</p>
     </div>,
     <div className="bg-white py-12 px-4 ">
-    <p className="text-[#6c757d] font-light pb-2">
-      Who has ever done this before? Masonic is phenominal.
-    </p>
-    <p>Samir Aliyev</p>
+      <p className="text-[#6c757d] font-light pb-2">
+        Who has ever done this before? Masonic is phenominal.
+      </p>
+      <p>Samir Aliyev</p>
     </div>,
     <div className="bg-white py-12 px-4">
-    <p className="text-[#6c757d] font-light pb-2">
-      Who has ever done this before? Masonic is phenominal.
-    </p>
-    <p>Samir Aliyev</p>
+      <p className="text-[#6c757d] font-light pb-2">
+        Who has ever done this before? Masonic is phenominal.
+      </p>
+      <p>Samir Aliyev</p>
     </div>,
     <div className="bg-white py-12 px-4">
-    <p className="text-[#6c757d] font-light pb-2">
-      Who has ever done this before? Masonic is phenominal.
-    </p>
-    <p>Samir Aliyev</p>
+      <p className="text-[#6c757d] font-light pb-2">
+        Who has ever done this before? Masonic is phenominal.
+      </p>
+      <p>Samir Aliyev</p>
     </div>,
     <div className="bg-white py-12 px-4">
-    <p className="text-[#6c757d] font-light pb-2">
-      Who has ever done this before? Masonic is phenominal.
-    </p>
-    <p>Samir Aliyev</p>
+      <p className="text-[#6c757d] font-light pb-2">
+        Who has ever done this before? Masonic is phenominal.
+      </p>
+      <p>Samir Aliyev</p>
     </div>,
     <div className="bg-white py-12 px-4">
-    <p className="text-[#6c757d] font-light pb-2">
-      Who has ever done this before? Masonic is phenominal.
-    </p>
-    <p>Samir Aliyev</p>
+      <p className="text-[#6c757d] font-light pb-2">
+        Who has ever done this before? Masonic is phenominal.
+      </p>
+      <p>Samir Aliyev</p>
     </div>,
   ];
 
@@ -90,7 +90,7 @@ const Comments = () => {
           spaceBetween={30}
           slidesPerView={slidesPerView}
           loop={true}
-          autoplay={{ delay: 2000 }}
+          autoplay={{ delay: 4000 }}
           navigation
           pagination={{ clickable: true }}
           onSwiper={handleSwiperInit}
@@ -111,4 +111,3 @@ const Comments = () => {
 };
 
 export default Comments;
-

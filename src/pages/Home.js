@@ -4,7 +4,7 @@ import Certifcate from "../components/certifcates/Certifcate";
 import Comments from "../components/comments/Comments";
 import ContactHome from "../components/contact/ContactHome";
 import HeroSection from "../components/HeroSection";
-import ProjectsOur from "../components/projects/ProjectsOur";
+import ProjectsHome from "../components/projects/ProjectsHome";
 import ServicesHome from "../components/services/ServicesHome";
 
 function Home() {
@@ -12,7 +12,7 @@ function Home() {
     <div>
       <HeroSection />
       <AboutHome />
-      <ProjectsOur />
+      <ProjectsHome />
       <Comments />
       <ServicesHome />
       <Certifcate/>
