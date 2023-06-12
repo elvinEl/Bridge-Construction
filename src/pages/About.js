@@ -1,11 +1,11 @@
 import React from "react";
-import Clients from "../components/AboutComponents/clients/Clients";
 import Features from "../components/AboutComponents/features/Features";
 import Methology from "../components/AboutComponents/methodology/Methology";
 import Misson from "../components/AboutComponents/missions/Misson";
 import Team from "../components/AboutComponents/team/Team";
 import Certifcate from '../components/certifcates/Certifcate'
 import Fixed from '../components/AboutComponents/fixedContent/Fixed'
+import Partners from '../components/partners/Partners'
 
 function About() {
   return (
@@ -23,7 +23,7 @@ function About() {
       <Misson />
       <Methology />
       <Features />
-      <Clients />
+      <Partners/>
       <Team/>
       <Certifcate/>
       <Fixed/>

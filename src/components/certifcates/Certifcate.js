@@ -1,47 +1,62 @@
-import React, { useState } from "react";
-import data from "../../data/certifcate.json";
+import React, { useState,useEffect } from "react";
 import Modal from "./modal/Modal";
 import "../../styles/zoom.css";
+import axios from "axios";
 
 function Certifcate() {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
+  const [certificateData, setCertificateData] = useState([])
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("http://10.138.1.35:8000/api/v1/certificates"); // API_URL, kullanacağınız API'nin URL'si ile değiştirilmelidir
+      const data = response.data; // API'den alınan veri response.data üzerinde bulunabilir
+      setCertificateData(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  
   const handleClick = (item, index) => {
     setCurrentIndex(index);
-    setClickedImg(item.link);
+    setClickedImg(item.image);
   };
 
   const handelRotationRight = () => {
-    const totalLength = data.data.length;
+    const totalLength = certificateData.length;
     if (currentIndex + 1 >= totalLength) {
       setCurrentIndex(0);
-      const newUrl = data.data[0].link;
+      const newUrl = certificateData[0].image;
       setClickedImg(newUrl);
       return;
     }
     const newIndex = currentIndex + 1;
-    const newUrl = data.data.filter((item) => {
-      return data.data.indexOf(item) === newIndex;
+    const newUrl = certificateData.filter((item) => {
+      return certificateData.indexOf(item) === newIndex;
     });
-    const newItem = newUrl[0].link;
+    const newItem = newUrl[0].image;
     setClickedImg(newItem);
     setCurrentIndex(newIndex);
   };
 
   const handelRotationLeft = () => {
-    const totalLength = data.data.length;
+    const totalLength = certificateData.length;
     if (currentIndex === 0) {
       setCurrentIndex(totalLength - 1);
-      const newUrl = data.data[totalLength - 1].link;
+      const newUrl = certificateData[totalLength - 1].image;
       setClickedImg(newUrl);
       return;
     }
     const newIndex = currentIndex - 1;
-    const newUrl = data.data.filter((item) => {
-      return data.data.indexOf(item) === newIndex;
+    const newUrl = certificateData.filter((item) => {
+      return certificateData.indexOf(item) === newIndex;
     });
-    const newItem = newUrl[0].link;
+    const newItem = newUrl[0].image;
     setClickedImg(newItem);
     setCurrentIndex(newIndex);
   };
@@ -50,14 +65,14 @@ function Certifcate() {
     <div className="max-w-[80%] mx-auto mt-20 max-md:max-w-[95%]">
       <p className="text-black font-bold text-[2.5rem] mb-8 ">Our Certifcates</p>
       <div className="grid grid-cols-3  gap-8 max-md:grid-cols-1">
-        {data.data.map((item, index) => (
+        {certificateData.map((item, index) => (
           <div
             key={index}
             className="wrapper-images certifcate-image cursor-pointer"
             data-aos="fade-up"
           >
             <img
-              src={item.link}
+              src={item.image}
               alt={item.text}
               onClick={() => handleClick(item, index)}
             />

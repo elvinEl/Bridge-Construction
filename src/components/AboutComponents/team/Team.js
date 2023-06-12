@@ -1,14 +1,15 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
-import teamData from "../../../data/team.json";
-import TeamItem from "./TeamItem";
-
+import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchTeam } from "../../../store/team/teamActions";
 function Team() {
-  const [teams, setTeams] = useState([]);
+  const { i18n } = useTranslation();
+  const dispatch = useDispatch();
+  const teamRedux = useSelector((state) => state.team.teamData);
   useEffect(() => {
-    setTeams(teamData);
-  });
+    const language = i18n.language;
+    dispatch(fetchTeam({ language }));
+  }, [dispatch, i18n.language]);
   return (
     <div className="max-w-[80%] mx-auto mt-20 text-[#6c757d]">
       <div className="flex justify-center items-center flex-col">
@@ -17,11 +18,17 @@ function Team() {
           Our genius experts!
         </p>
       </div>
+     
 
       <div className="grid grid-cols-4 gap-4">
-        {teams.map((team) => (
-          <TeamItem team={team} key={team.id} />
-        ))}
+      {Object.keys(teamRedux).map((key) => (
+        <div className={`about/${teamRedux[key].general_key}`}>
+          <div className="col-span-1 " data-aos="fade-up">
+            <img src={teamRedux[key].image} alt="" />
+            <p className="text-black font-bold mt-3">{teamRedux[key].title}</p>
+          </div>
+        </div>
+      ))}
       </div>
     </div>
   );

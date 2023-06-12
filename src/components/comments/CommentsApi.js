@@ -5,23 +5,41 @@ import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
-const Comments = () => {
+const Partners = () => {
   const [slideData, setSlideData] = useState([]);
   const [swiper, setSwiper] = useState(null);
   const swiperRef = useRef(null);
-
+  const [slidesPerView, setSlidesPerView] = useState(3);
   useEffect(() => {
     const fetchSlideData = async () => {
       try {
-        const response = await fetch("http://10.138.1.35:8000/api/v1/services"); // API_ENDPOINT, gerçek API adresinizi buraya yerleştirin
+        const response = await fetch("http://10.138.1.35:8000/api/v1/partners");
         const data = await response.json();
-        setSlideData(data); // API'den gelen verileri slideData state'ine yerleştiriyoruz
+        setSlideData(data);
       } catch (error) {
         console.log("API çağrısı sırasında bir hata oluştu:", error);
       }
     };
 
     fetchSlideData();
+  }, []);
+
+  useEffect(() => {
+    const updateSlidesPerView = () => {
+      if (window.innerWidth >= 1024) {
+        setSlidesPerView(3);
+      } else if (window.innerWidth >= 768) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
+
+    window.addEventListener("resize", updateSlidesPerView);
+
+    return () => {
+      window.removeEventListener("resize", updateSlidesPerView);
+    };
   }, []);
 
   useEffect(() => {
@@ -55,9 +73,9 @@ const Comments = () => {
         {slideData.length > 0 ? (
           <Swiper
             spaceBetween={30}
-            slidesPerView={3}
+            slidesPerView={slidesPerView}
             loop={true}
-            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
             navigation
             pagination={{ clickable: true }}
             onSwiper={handleSwiperInit}
@@ -65,21 +83,9 @@ const Comments = () => {
           >
             {slideData.map((slide, index) => (
               <SwiperSlide key={index} onClick={handleSlideClick}>
-                <div className="bg-white py-12 px-4">
-                  <p className="text-[#6c757d] font-light pb-2">
-                    {slide.content}
-                  </p>
-                  <p>{slide.author}</p>
-                </div>
-              </SwiperSlide>
-            ))}
-            {/* İlk slaytın sonuna, slideData dizisinin başına eklenen slaytları burada da ekleyebilirsiniz */}
-            {slideData.slice(0, 2).map((slide, index) => (
-              <SwiperSlide key={`extra-${index}`} onClick={handleSlideClick}>
-                <div className="bg-white py-12 px-4">
-                  <p className="text-[#6c757d] font-light pb-2">
-                    {slide.title}
-                  </p>
+                <div className="flex justify-center items-center bg-white w-full gap-8 bg-contain h-[200px] ">
+                  {/* <p>{slide.name}</p> */}
+                  <img className="w-full" src={slide.image} alt="" />
                 </div>
               </SwiperSlide>
             ))}
@@ -92,4 +98,4 @@ const Comments = () => {
   );
 };
 
-export default Comments;
+export default Partners;

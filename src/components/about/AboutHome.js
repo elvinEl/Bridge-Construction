@@ -22,14 +22,14 @@ function AboutHome() {
               <div className="col-span-1" data-aos="fade-right">
                 <p className="text-[1.25rem]">About Us</p>
                 <p className="text-black font-bold text-[2.5rem] mb-8 ">
-                  {aboutRedux[key].title}
+                  {aboutRedux[key].home_title}
                 </p>
                 <p
                   className="mb-8"
                   dangerouslySetInnerHTML={{
                     __html:
-                      aboutRedux[key].description &&
-                      aboutRedux[key].description,
+                      aboutRedux[key].home_description &&
+                      aboutRedux[key].home_description,
                   }}
                 ></p>
               </div>
@@ -38,7 +38,7 @@ function AboutHome() {
                   className="max-w-[80%] max-lg:max-w-full"
                   data-aos="fade-left"
                 >
-                  <img src={aboutRedux[key].image} alt="" />
+                  <img src={aboutRedux[key].home_image} alt="" />
                 </div>
               </div>
             </div>
