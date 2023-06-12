@@ -1,6 +1,7 @@
 import React from "react";
-
+import { useTranslation } from "react-i18next";
 function ContactHome() {
+  const { t } = useTranslation();
   return (
     <div className="bg-image z-50 py-12 mt-16">
       <div
@@ -22,9 +23,8 @@ function ContactHome() {
         </div>
         <div className="flex flex-col-reverse">
           <div className="col-span-1 flex flex-col mx-auto items-start max-md:mx-0 max-md:mt-4">
-            <p className="text-[1.25rem] text-[#6c757d]">Stay Tuned!</p>
             <p className="text-black font-bold text-[2.5rem] mb-8 ">
-              Contact Us
+              {t("Əlaqə")}
             </p>{" "}
             <a href="tel:" className="text-[1.5rem] text-[#ec1b30]">
               +994(50)1111111

@@ -1,11 +1,11 @@
 import React from "react";
 import AboutHome from "../components/about/AboutHome";
 import Certifcate from "../components/certifcates/Certifcate";
-import Comments from "../components/comments/Comments";
 import ContactHome from "../components/contact/ContactHome";
 import HeroSection from "../components/HeroSection";
 import ServicesHome from "../components/services/ServicesHome";
 import Partners from "../components/partners/Partners";
+import CommentsApi from '../components/comments/CommentsApi'
 
 function Home() {
   return (
@@ -13,7 +13,7 @@ function Home() {
       <HeroSection />
       <AboutHome />
       <ServicesHome />
-      <Comments />
+      <CommentsApi/>
       <Certifcate />
       <Partners />
       <ContactHome />

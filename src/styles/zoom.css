@@ -19,7 +19,7 @@ body {
     gap: 2em;
   }
   .wrapper-images img {
-    height: 350px;
+    max-height: 350px;
     width: 100%;
   }
 

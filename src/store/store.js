@@ -4,6 +4,7 @@ import serviceDetailReducer from "./services/serviceDetailSlice";
 import aboutReducer from "./about/aboutSlice";
 import partnersReducer from "./partners/partnersSlice";
 import teamReducer from "./team/teamSlice";
+import contactReducer from "./contact/contactSlice";
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     about: aboutReducer,
     partners: partnersReducer,
     team: teamReducer,
+    contact: contactReducer,
   },
 });

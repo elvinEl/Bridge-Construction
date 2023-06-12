@@ -2,12 +2,13 @@ import React, { useState,useEffect } from "react";
 import Modal from "./modal/Modal";
 import "../../styles/zoom.css";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 function Certifcate() {
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [certificateData, setCertificateData] = useState([])
-
+  const {t} = useTranslation()
   const fetchData = async () => {
     try {
       const response = await axios.get("http://10.138.1.35:8000/api/v1/certificates"); // API_URL, kullanacağınız API'nin URL'si ile değiştirilmelidir
@@ -62,9 +63,9 @@ function Certifcate() {
   };
 
   return (
-    <div className="max-w-[80%] mx-auto mt-20 max-md:max-w-[95%]">
-      <p className="text-black font-bold text-[2.5rem] mb-8 ">Our Certifcates</p>
-      <div className="grid grid-cols-3  gap-8 max-md:grid-cols-1">
+    <div className="max-w-[80%] mx-auto mt-20 max-md:max-w-[95%] max-lg:max-w-[90%]">
+      <p className="text-black font-bold text-[2.5rem] mb-8 "> {t("Sertifkatlarımız")}</p>
+      <div className="grid grid-cols-3 max-lg:grid-cols-2  max-md:grid-cols-1 gap-8">
         {certificateData.map((item, index) => (
           <div
             key={index}

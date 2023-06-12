@@ -12,6 +12,7 @@ function ServicesDetails() {
   const serviceDetailRedux = useSelector(
     (state) => state.serviceDetail.serviceDataDetail
   );
+  console.log(serviceDetailRedux);
 
   useEffect(() => {
     let dataS =
@@ -21,11 +22,15 @@ function ServicesDetails() {
   }, [dispatch, i18n.language, general_key]);
 
   return (
-    <div>
+    <div className="pt-20 max-w-[80%] mx-auto">
       <p>{serviceDetailRedux.content && serviceDetailRedux.content.title}</p>
-      <p>
-        {serviceDetailRedux.content && serviceDetailRedux.content.description}
-      </p>
+      <p
+        dangerouslySetInnerHTML={{
+          __html:
+            serviceDetailRedux.content &&
+            serviceDetailRedux.content.description,
+        }}
+      ></p>
     </div>
   );
 }

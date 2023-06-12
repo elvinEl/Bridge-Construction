@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
-
+import { ImQuotesLeft } from "react-icons/im";
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const Partners = () => {
@@ -13,14 +13,13 @@ const Partners = () => {
   useEffect(() => {
     const fetchSlideData = async () => {
       try {
-        const response = await fetch("http://10.138.1.35:8000/api/v1/partners");
+        const response = await fetch("http://10.138.1.35:8000/api/v1/comments");
         const data = await response.json();
         setSlideData(data);
       } catch (error) {
         console.log("API çağrısı sırasında bir hata oluştu:", error);
       }
     };
-
     fetchSlideData();
   }, []);
 
@@ -83,15 +82,23 @@ const Partners = () => {
           >
             {slideData.map((slide, index) => (
               <SwiperSlide key={index} onClick={handleSlideClick}>
-                <div className="flex justify-center items-center bg-white w-full gap-8 bg-contain h-[200px] ">
-                  {/* <p>{slide.name}</p> */}
-                  <img className="w-full" src={slide.image} alt="" />
+                <div className="flex flex-col items-start bg-white w-full gap-8 bg-contain h-[200px] ">
+                  <div className="flex pt-8 flex-col px-4">
+                    <span className="text-[40px]">
+                      <ImQuotesLeft />
+                    </span>
+                    <p>{slide.title}</p>
+                    <p
+                      className="line-clamp-4"
+                      dangerouslySetInnerHTML={{ __html: slide.description }}
+                    ></p>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         ) : (
-          <p>Veriler yükleniyor...</p>
+          <p>Loading...</p>
         )}
       </div>
     </div>

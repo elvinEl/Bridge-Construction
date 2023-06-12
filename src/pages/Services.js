@@ -1,6 +1,6 @@
 import React from "react";
 import ServicesComponent from "../components/services/ServicesComponent";
-
+import Fixed from '../components/AboutComponents/fixedContent/Fixed'
 function Services() {
   return (
     <div>
@@ -17,6 +17,7 @@ function Services() {
         </div>
       </div>
       <ServicesComponent />
+      <Fixed/>
     </div>
   );
 }

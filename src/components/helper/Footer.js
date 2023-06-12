@@ -8,12 +8,6 @@ function Footer() {
       <div className="bg-white max-w-[80%] mx-auto grid grid-cols-4 my-12 gap-2 max-md:grid-cols-1 max-md:max-w-[95%]">
         <div className="col-span-1">
           <p className="">Bridge Construction</p>
-          <p className="font-light mt-4 text-[15px]">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore,
-            fuga voluptatum unde, expedita sapiente officiis sunt eligendi nulla
-            vel odio doloribus iste quibusdam laudantium eaque animi atque
-            repellendus labore modi.
-          </p>
         </div>
         <div className="col-span-1">
           <p>Services</p>
