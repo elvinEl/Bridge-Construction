@@ -1,29 +1,167 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import { useTranslation } from "react-i18next";
+const Form = () => {
+  const { t } = useTranslation();
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    phone: "",
+  });
 
-function Form() {
+  const notify = () => toast("Mesajınız göndərildi");
+  const errorNotify = () => toast("Mesajınız göndərilmədi !");
+
+  const handleInputChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const url = "http://10.138.1.35:8000/api/v1/contact";
+    const XStaticToken = "b@b!um1JBF4rRs#gGskv^SaFC5@DX68y";
+
+    try {
+      const response = await axios
+        .post(url, formData, {
+          headers: {
+            XStaticToken: XStaticToken,
+          },
+        })
+        .then(
+          (result) => {
+            notify(result.text);
+          },
+          (error) => {
+            errorNotify(error.text);
+          }
+        );
+      setFormData({
+        name: "",
+        surname: "",
+        email: "",
+        phone: "",
+      });
+    } catch (error) {
+      errorNotify(error.text).then(
+        (result) => {
+          notify(result.text);
+        },
+        (error) => {
+          errorNotify(error.text);
+        }
+      );
+    }
+  };
+
   return (
     <div className="grid grid-cols-2 max-w-[80%] mx-auto mt-20 gap-8">
       <div className="col-span-1 h-[395px]" data-aos="fade-right">
         <img className="w-full h-full" src="./assets/contact/c2.jpg" alt="" />
       </div>
       <div className="col-span-1" data-aos="fade-left">
-        <p className="text-[1.25rem] text-[#6c757d]">Send Message</p>
-        <p className="font-bold text-[2.5rem]">Drop us a line</p>
-        <form className="mt-5">
-          <div>
-            <input type="text" placeholder="Ad" className="border-b-[1px] w-full py-2 outline-none border-black " />
+        <p className="font-bold text-[2.5rem]">{t("Mesaj Göndər")}</p>
+        <form className=" flex flex-col" onSubmit={handleSubmit}>
+          <div className="relative z-0 mb-4">
+            <input
+              type="text"
+              name="name"
+              tabIndex="1"
+              value={formData.name}
+              onChange={handleInputChange}
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              placeholder=" "
+            />
+            <label
+              htmlFor="name-input"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              required
+            >{t("Ad")}
+              
+            </label>
           </div>
-          <div>
-            <input type="email" placeholder="Email" className="border-b-[1px] w-full outline-none py-2 border-black pt-5"/>
+
+          <div className="relative z-0 mb-4">
+            <input
+              type="text"
+              name="surname"
+              tabIndex="2"
+              value={formData.surname}
+              onChange={handleInputChange}
+              id="surname-input"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              placeholder=" "
+            />
+            <label
+              htmlFor="surname-input"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              required
+            >
+              Soyad
+            </label>
           </div>
-          <div>
-            <textarea cols="30" rows="5" placeholder="Message" className="border-b-[1px] w-full  outline-none border-black pt-5"></textarea>
+
+          <div className="relative z-0 mb-4">
+            <input
+              type="number"
+              name="phone"
+              tabIndex="3"
+              value={formData.phone}
+              onChange={handleInputChange}
+              id="phone-input"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              placeholder=" "
+            />
+            <label
+              htmlFor="phone-input"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              required
+            >
+              Numara
+            </label>
           </div>
-          <button className="bg-[#dc3545] px-3 py-1 text-white font-light mt-3">Send Message</button>
+
+          <div className="relative z-0 mb-4">
+            <input
+              type="email"
+              name="email"
+              tabIndex="4"
+              value={formData.email}
+              onChange={handleInputChange}
+              id="email-input"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              placeholder=" "
+            />
+            <label
+              htmlFor="email-input"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              required
+            >
+              E-Posta
+            </label>
+          </div>
+          <div className="flex justify-end">
+            <button
+              className="px-3 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+              type="submit"
+            >
+              Gönder
+            </button>
+          </div>
+
+          <div>
+            <Toaster position="top-center" />
+          </div>
         </form>
       </div>
     </div>
   );
-}
+};
 
 export default Form;
