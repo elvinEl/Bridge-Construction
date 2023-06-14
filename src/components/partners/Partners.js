@@ -34,11 +34,13 @@ const Partners = () => {
         setSlidesPerView(1);
       }
     };
-
-    window.addEventListener("resize", updateSlidesPerView);
-
+    updateSlidesPerView();
+    const handleResize = () => {
+      updateSlidesPerView();
+    };
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", updateSlidesPerView);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -69,7 +71,7 @@ const Partners = () => {
   return (
     <div className="bg-image-comments mt-20 ">
       <br />
-      <div className="max-w-[80%] mx-auto py-12">
+      <div className="max-w-[80%] mx-auto py-12 max-lg:max-w-[90%] ">
         {slideData.length > 0 ? (
           <Swiper
             spaceBetween={30}

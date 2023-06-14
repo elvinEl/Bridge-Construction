@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
 import { ImQuotesLeft } from "react-icons/im";
+
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const Partners = () => {
@@ -33,11 +34,13 @@ const Partners = () => {
         setSlidesPerView(1);
       }
     };
-
-    window.addEventListener("resize", updateSlidesPerView);
-
+    updateSlidesPerView();
+    const handleResize = () => {
+      updateSlidesPerView();
+    };
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", updateSlidesPerView);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
@@ -68,7 +71,7 @@ const Partners = () => {
   return (
     <div className="bg-image-comments mt-20">
       <br />
-      <div className="max-w-[80%] mx-auto pb-8">
+      <div className="max-w-[80%] mx-auto pb-8 ">
         {slideData.length > 0 ? (
           <Swiper
             spaceBetween={30}
@@ -83,7 +86,7 @@ const Partners = () => {
             {slideData.map((slide, index) => (
               <SwiperSlide key={index} onClick={handleSlideClick}>
                 <div className="flex flex-col items-start bg-white w-full gap-8 bg-contain h-[200px] ">
-                  <div className="flex pt-8 flex-col px-4">
+                  <div className="flex pt-8 flex-col px-4 max-md:pt-4">
                     <span className="text-[40px]">
                       <ImQuotesLeft />
                     </span>

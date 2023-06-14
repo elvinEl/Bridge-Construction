@@ -36,12 +36,13 @@ function Header() {
   };
   return (
     <header className="relative max-w-[80%] mx-auto z-50">
-      <div className="pt-2 absolute">
+      <div className="pt-2 absolute min-w-full">
         <div className="container1">
         <div>
           <img src="" alt="" />
         </div>
-        <nav ref={navRef} className="gap-x-5 flex">
+        <nav ref={navRef} className="min-w-full flex justify-between">
+          <ul className="gap-x-5 flex max-md:flex-col max-md:gap-4">
           <NavLink
             onClick={clickHandle}
             className='relative text-[#787a7b] no-underline after:content-[""] after:absolute after:bg-[#ec0e0e] after:h-[3px] after:w-0 after:duration-300 after:left-0 after:bottom-0 after:hover:w-[30px]  font-medium text-sm hover:text-black transition-all  py-[10px] max-md:text-[24px] max-md:hover:text-white'
@@ -71,11 +72,12 @@ function Header() {
           >
             {t("Əlaqə")}
           </NavLink>
+          </ul>
+        
           <button className="nav-btn nav-close-btn" onClick={showNavbar}>
             <FaTimes />
           </button>
 
-          <div>
           <div
             className={`select-box relative ${isOpen ? "open" : ""}`}
             onMouseEnter={toggleDropdown}
@@ -103,7 +105,6 @@ function Header() {
                 ))}
               </div>
             )}
-          </div>
           </div>
         </nav>
        

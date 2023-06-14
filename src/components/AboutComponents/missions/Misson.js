@@ -12,7 +12,7 @@ function Misson() {
     dispatch(fetchAbout({ language }));
   }, [dispatch, i18n.language]);
   return (
-    <div className="mt-12 max-w-[80%] mx-auto max-md:max-w-[95%]">
+    <div className="mt-12 max-w-[80%] mx-auto max-md:max-w-[95%] max-lg:max-w-[90%]">
       {Object.keys(aboutRedux).map((key) => (
         <div className={`about/${aboutRedux[key].general_key}`}>
           <div className="grid grid-cols-2 gap-12  text-[#6c757d] max-md:grid-cols-1">

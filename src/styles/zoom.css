@@ -101,7 +101,7 @@ body {
     height: 350px;
   }
   .wrapper-images img{
-    height: 250px;
+    height: auto;
   }
   }
   

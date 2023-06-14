@@ -12,8 +12,8 @@ function ServicesDetails() {
   const serviceDetailRedux = useSelector(
     (state) => state.serviceDetail.serviceDataDetail
   );
-  console.log(serviceDetailRedux);
-
+  const serviceDetailPartners = serviceDetailRedux.partners;
+  console.log(serviceDetailPartners);
   useEffect(() => {
     let dataS =
       serviceR && serviceR.find((item) => item.general_key == general_key);
@@ -31,6 +31,14 @@ function ServicesDetails() {
             serviceDetailRedux.content.description,
         }}
       ></p>
+      <div>
+        {Object.keys(serviceDetailPartners).map((key) => (
+          <div>
+            <p>{serviceDetailPartners[key].name}</p>
+            <img src={serviceDetailPartners[key].image} alt="" />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

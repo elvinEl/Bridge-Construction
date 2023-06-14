@@ -11,7 +11,10 @@
 	height: 80px;
 	color: var(--secondaryColor);
 } */
-
+.select-item{
+  gap: 0.5rem;
+  white-space: nowrap;
+}
 nav a {
   gap: 1rem;
   color: white;
@@ -119,4 +122,6 @@ nav {
 }
 .selected-item {
   gap: 0.5rem;
+  white-space: nowrap;
+  color: black;
 }

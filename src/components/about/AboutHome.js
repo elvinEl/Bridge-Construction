@@ -20,12 +20,12 @@ function AboutHome() {
           <div className={`about/${aboutRedux[key].general_key}`}>
             <div className="grid grid-cols-2 gap-12  text-[#6c757d] max-md:grid-cols-1">
               <div className="col-span-1" data-aos="fade-right">
-                <p className="text-[1.25rem]">{t("Haqqımızda")} </p>
-                <p className="text-black font-bold text-[2.5rem] mb-8 ">
+                <p className="text-[1.25rem] max-md:text-4">{t("Haqqımızda")} </p>
+                <p className="text-black font-bold text-[2.5rem] mb-8 max-md:text-[1.8rem]">
                   {aboutRedux[key].home_title}
                 </p>
                 <p
-                  className="mb-8"
+                  className="mb-8 text-[15px]"
                   dangerouslySetInnerHTML={{
                     __html:
                       aboutRedux[key].home_description &&

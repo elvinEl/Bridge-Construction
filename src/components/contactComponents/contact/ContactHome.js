@@ -23,7 +23,7 @@ function ContactHome() {
         </div>
         <div className="flex flex-col-reverse">
           <div className="col-span-1 flex flex-col mx-auto items-start max-md:mx-0 max-md:mt-4">
-            <p className="text-black font-bold text-[2.5rem] mb-8 ">
+            <p className="text-black font-bold text-[2.5rem] mb-8 max-md:text-[1.8rem] max-md:mb-0">
               {t("Əlaqə")}
             </p>{" "}
             <a href="tel:" className="text-[1.5rem] text-[#ec1b30]">

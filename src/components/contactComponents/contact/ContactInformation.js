@@ -18,9 +18,9 @@ function ContactInformation() {
   
 
   return (
-    <div className="max-w-[80%] mx-auto text-[#6c757d] mt-20">
+    <div className="max-w-[80%] mx-auto text-[#6c757d] mt-20 max-lg:max-w-[90%] max-md:max-w-[95%]">
       <p className="text-[1.25rem]">{t("Bizimlə qalın!")}</p>
-      <p className="text-black font-bold text-[2.5rem] mb-8 ">
+      <p className="text-black font-bold text-[2.5rem] mb-8 max-md:text-[1.8rem]">
         {t("Xidmətinizdəyik 7/24!")}
       </p>
       <div data-aos="fade-right">
