@@ -16,7 +16,7 @@ function Home() {
       <CommentsApi />
       <Certifcate />
       <Partners />
-      <ContactHome />
+      {/* <ContactHome /> */}
       <Modal/>
     </div>
   );
