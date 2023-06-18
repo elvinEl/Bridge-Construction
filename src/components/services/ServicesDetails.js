@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { json, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchServicesById } from "../../store/services/serviceActions";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
@@ -17,20 +17,16 @@ function ServicesDetails() {
   const serviceDetailRedux = useSelector(
     (state) => state.serviceDetail.serviceDataDetail
   );
-  // console.log(serviceDetailRedux);
+  console.log(serviceDetailRedux);
 
-  // const serviceDetailRedux = localStorage.getItem("sponsors");
-  // console.log(JSON.parse(serviceDetailRedux.content));
 
   useEffect(() => {
     if (serviceDetailRedux) {
-      const serviceDetailRedux = localStorage.getItem("sponsors");
-      console.log(JSON.parse(serviceDetailRedux.partners));
+      const serviceDetailRedux =JSON.parse(localStorage.getItem("sponsors"));
+      console.log(serviceDetailRedux);
     }
-  },[serviceDetailRedux]);
+  },[]);
 
-  // const serviceDetailPartners = serviceDetailRedux.partners;
-  // console.log(serviceDetailPartners);
 
   useEffect(() => {
     let dataS =
@@ -49,6 +45,7 @@ function ServicesDetails() {
 
   return (
     <div className="pt-20 max-w-[80%] mx-auto min-h-[70vh]">
+      <p>{serviceDetailRedux.content && serviceDetailRedux.content.title}</p>
       {/* <p className="flex justify-center text-[#ec0e0e] font-bold text-[24px]">
         {serviceDetailRedux.content && serviceDetailRedux.content.title}
       </p> */}
