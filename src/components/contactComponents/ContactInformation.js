@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchContact } from "../../../store/contact/contactActions";
+import { fetchContact } from "../../store/contact/contactActions";
 
 function ContactInformation() {
   const { t, i18n } = useTranslation();

@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchServicesById } from "./serviceActions";
-
 export const serviceDetailSlice = createSlice({
   name: "serviceDetail",
   initialState: {
@@ -18,7 +17,7 @@ export const serviceDetailSlice = createSlice({
       state.isLoading = false;
       state.isSuccess = true;
       state.serviceDataDetail = payload;
-      localStorage.setItem("sponsors",JSON.stringify(state.serviceDataDetail))
+      localStorage.setItem("partners",JSON.stringify(state.serviceDataDetail))
     },
     [fetchServicesById.rejected]: (state, { payload }) => {
       state.isLoading = false;

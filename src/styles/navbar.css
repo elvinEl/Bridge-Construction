@@ -3,14 +3,6 @@
   --secondaryColor: black;
   --textColor: white;
 }
-
-/* .container1 {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	height: 80px;
-	color: var(--secondaryColor);
-} */
 .select-item{
   gap: 0.5rem;
   white-space: nowrap;
@@ -68,13 +60,17 @@ nav {
 
   nav .nav-close-btn {
     position: absolute;
-    top: 2rem;
-    right: 3rem;
+    top: 1rem;
+    right: 2rem;
   }
 
   nav a {
     font-size: 1.5rem;
     color: white;
+  }
+  .container1{
+    display: flex;
+    justify-content: end;
   }
 }
 

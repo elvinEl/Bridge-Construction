@@ -1,17 +1,19 @@
 import React from "react";
-import ContactInformation from "../components/contactComponents/contact/ContactInformation";
+import ContactInformation from "../components/contactComponents/ContactInformation";
 import Fixed from "../components/AboutComponents/fixedContent/Fixed";
-import ContactForm from "../components/contactComponents/contactForm/Form";
+import ContactForm from "../components/contactComponents/Form";
+import {useTranslation} from 'react-i18next'
 function Contact() {
+  const {t} = useTranslation()
   return (
     <div>
       <div className="bg-image-contact  min-h-[100vh] bg-cover"></div>
       <div className="quadrangle">
         <div className="elvin ">
-          <p className="text-[#ec0e0e]">Contact Us</p>
-          <p className="text-[3.5rem] font-bold">Stay</p>
-          <p className="bg-[#ec0e0e] text-white px-4 py-1 font-bold inline-block text-[3.5rem]">
-            In Touch
+          <p className="text-[#ec0e0e]"> {t("Əlaqə")}</p>
+          <p className="text-[3.5rem] font-bold max-md:text-[3rem]"> {t("Bizimlə")}</p>
+          <p className="bg-[#ec0e0e] text-white px-4 py-1 font-bold inline-block text-[3.5rem] max-md:text-[2.5rem]">
+          {t("Qal")}
           </p>
         </div>
       </div>

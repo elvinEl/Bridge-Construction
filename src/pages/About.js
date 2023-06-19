@@ -3,30 +3,33 @@ import Features from "../components/AboutComponents/features/Features";
 import Methology from "../components/AboutComponents/methodology/Methology";
 import Misson from "../components/AboutComponents/missions/Misson";
 import Team from "../components/AboutComponents/team/Team";
-import Certifcate from '../components/certifcates/Certifcate'
-import Fixed from '../components/AboutComponents/fixedContent/Fixed'
-import Partners from '../components/partners/Partners'
-
+import Certifcate from "../components/certifcates/Certifcate";
+import Fixed from "../components/AboutComponents/fixedContent/Fixed";
+import Partners from "../components/partners/Partners";
+import { useTranslation } from "react-i18next";
 function About() {
+  const { t, i18n } = useTranslation();
   return (
     <div>
       <div className="bg-image-about  min-h-[100vh] bg-cover"></div>
       <div className="quadrangle">
         <div className="elvin ">
-          <p className="text-[#ec0e0e]">About Us</p>
-          <p className="text-[3.5rem] font-bold">Masonic</p>
-          <p className="bg-[#ec0e0e] text-white px-4 py-1 font-bold inline-block text-[3.5rem]">
-          Creative Architect
+          <p className="text-[#ec0e0e]">{t("Haqqımızda")}</p>
+          <p className="text-[3.5rem] font-bold  max-md:text-[3rem]">
+            {t("Yaradıcı")}{" "}
+          </p>
+          <p className="bg-[#ec0e0e] text-white px-4 py-1 font-bold inline-block text-[2.5rem] max-md:text-[2.5rem]">
+            {t("Memarlıq")}
           </p>
         </div>
       </div>
       <Misson />
       <Methology />
       <Features />
-      <Partners/>
-      <Team/>
-      <Certifcate/>
-      <Fixed/>
+      <Partners />
+      <Team />
+      <Certifcate />
+      <Fixed />
     </div>
   );
 }

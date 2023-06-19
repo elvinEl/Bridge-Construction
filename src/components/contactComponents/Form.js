@@ -61,7 +61,7 @@ const Form = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 max-w-[80%] mx-auto mt-20 gap-8 max-md:grid-cols-1 max-lg:max-w-[90%] max-md:max-w-[95%]">
+    <div className="overflow-hidden grid grid-cols-2 max-w-[80%] mx-auto mt-20 gap-8 max-md:grid-cols-1 max-lg:max-w-[90%] max-md:max-w-[95%]">
       <div className="col-span-1 h-[395px] max-xl:h-full" data-aos="fade-right">
         <img className="w-full h-full" src="./assets/contact/c2.jpg" alt="" />
       </div>

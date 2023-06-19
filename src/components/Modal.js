@@ -13,7 +13,6 @@ const style = {
   width: 300,
   transform: "translate(-50%, -50%)",
   bgcolor: "background.paper",
-  border: "2px solid #000",
   boxShadow: 24,
   p: 4,
 };
@@ -79,13 +78,13 @@ export default function BasicModal() {
   return (
     <div className="flex items-center bg-yellow-400 justify-center gap-12 py-4 mt-20">
       <p className="text-white font-bold text-[2rem]  max-md:text-[1rem]">
-        Sualınız varsa biz sizə
+        {t("Sualınız varsa biz sizə")}
       </p>
       <button
         onClick={handleOpen}
         className="bg-white rounded text-black px-4 py-2 font-bold text-[1.2rem] max-md:text-[1rem]"
       >
-        Zəng edək
+        {t("Zəng edək")}
       </button>
       <Modal
         open={open}
@@ -95,14 +94,14 @@ export default function BasicModal() {
       >
         <Box sx={style}>
           <div>
-            <p className="font-bold pb-4">Zəng Sifarişi</p>
+            <p className="font-bold pb-4">{t("Zəng Sifarişi")}</p>
             <form onSubmit={handleSubmit}>
               <div className="flex flex-col gap-4">
                 <input
                   onChange={handleInputChange}
                   name="name"
                   value={formData.name}
-                  placeholder="Ad"
+                  placeholder={t("Ad")}
                   required
                   className="border-[1px] placeholder:px-1 outline-none px-1 py-1 border-blue-500 placeholder:text-[14px]"
                   type="text"
@@ -112,7 +111,7 @@ export default function BasicModal() {
                   name="surname"
                   id="surname-input"
                   value={formData.surname}
-                  placeholder="Soyad"
+                  placeholder={t("Soyad")}
                   required
                   className="border-[1px] placeholder:px-1 outline-none px-1 py-1 border-blue-500 placeholder:text-[14px]"
                   type="text"
@@ -123,13 +122,13 @@ export default function BasicModal() {
                   required
                   value={formData.phone}
                   onChange={handleInputChange}
-                  placeholder="Telefon"
+                  placeholder={t("Telefon")}
                   className="border-[1px] placeholder:px-1 outline-none px-1 py-1 border-blue-500 placeholder:text-[14px]"
                   type="number"
                 />
               </div>
               <button className="bg-blue-500 text-white mt-4 w-full py-1 font-bold">
-                Göndər
+                 {t("Göndər")}
               </button>
             </form>
           </div>

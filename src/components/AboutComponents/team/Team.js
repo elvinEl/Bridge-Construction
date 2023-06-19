@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchTeam } from "../../../store/team/teamActions";
 function Team() {
-  const { i18n } = useTranslation();
+  const { i18n,t } = useTranslation();
   const dispatch = useDispatch();
   const teamRedux = useSelector((state) => state.team.teamData);
   useEffect(() => {
@@ -12,10 +12,10 @@ function Team() {
   }, [dispatch, i18n.language]);
   return (
     <div className="max-w-[80%] mx-auto mt-20 text-[#6c757d] max-lg:max-w-[90%] max-md:max-w-[95%]">
-      <div className="flex justify-center items-center flex-col">
-        <p className="text-[1.25rem]">Our Team</p>
-        <p className="text-black font-bold text-[2.5rem] mb-8 ">
-          Our genius experts!
+      <div className="flex justify-start items-start flex-col ">
+        <p className="text-[1.25rem]">{t("Bizim Komanda")}</p>
+        <p className="text-black font-bold text-[2.5rem] mb-8 max-md:text-[1.8rem]">
+           {t("Bizim mütəxəssislər!")}
         </p>
       </div>
 

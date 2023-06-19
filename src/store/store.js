@@ -5,6 +5,9 @@ import aboutReducer from "./about/aboutSlice";
 import partnersReducer from "./partners/partnersSlice";
 import teamReducer from "./team/teamSlice";
 import contactReducer from "./contact/contactSlice";
+import methodologyReducer from "./methology/methodologySlice";
+import featuresReducer from './features/featuresSlice'
+
 
 export default configureStore({
   reducer: {
@@ -14,5 +17,7 @@ export default configureStore({
     partners: partnersReducer,
     team: teamReducer,
     contact: contactReducer,
+    methodology: methodologyReducer,
+    features:featuresReducer
   },
 });

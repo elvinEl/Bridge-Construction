@@ -1,7 +1,6 @@
 import React from "react";
 import AboutHome from "../components/about/AboutHome";
 import Certifcate from "../components/certifcates/Certifcate";
-import ContactHome from "../components/contactComponents/contact/ContactHome";
 import HeroSection from "../components/HeroSection";
 import ServicesHome from "../components/services/ServicesHome";
 import Partners from "../components/partners/Partners";
@@ -16,7 +15,6 @@ function Home() {
       <CommentsApi />
       <Certifcate />
       <Partners />
-      {/* <ContactHome /> */}
       <Modal/>
     </div>
   );

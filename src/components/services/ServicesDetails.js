@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { json, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchServicesById } from "../../store/services/serviceActions";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
@@ -17,65 +17,60 @@ function ServicesDetails() {
   const serviceDetailRedux = useSelector(
     (state) => state.serviceDetail.serviceDataDetail
   );
-  console.log(serviceDetailRedux);
-
 
   useEffect(() => {
-    if (serviceDetailRedux) {
-      const serviceDetailRedux =JSON.parse(localStorage.getItem("sponsors"));
-      console.log(serviceDetailRedux);
-    }
-  },[]);
-
-
-  useEffect(() => {
-    let dataS =
-      serviceR && serviceR.find((item) => item.general_key === general_key);
     const language = i18n.language;
-    dispatch(fetchServicesById({ dataS, language }));
+    dispatch(fetchServicesById({ general_key, language }));
   }, [dispatch, i18n.language, general_key]);
 
   const swiperRef = useRef(null);
 
   useEffect(() => {
-    if (swiperRef.current) {
-      swiperRef.current.swiper.autoplay.start();
+    if (swiperRef.current && swiperRef.current.swiper) {
+      const swiperInstance = swiperRef.current.swiper;
+      swiperInstance.autoplay.start();
     }
-  }, [swiperRef.current]);
+  }, [serviceDetailRedux.partners]);
 
   return (
     <div className="pt-20 max-w-[80%] mx-auto min-h-[70vh]">
-      <p>{serviceDetailRedux.content && serviceDetailRedux.content.title}</p>
-      {/* <p className="flex justify-center text-[#ec0e0e] font-bold text-[24px]">
+      <p className="flex justify-center text-[#ec0e0e] font-bold text-[24px]">
         {serviceDetailRedux.content && serviceDetailRedux.content.title}
-      </p> */}
-      {/* <p
+      </p>
+      <p
         className="flex justify-start text-black text-[18px] mt-12"
         dangerouslySetInnerHTML={{
           __html:
             serviceDetailRedux.content &&
             serviceDetailRedux.content.description,
         }}
-      ></p> */}
-      {/* <div className="flex">
-        {serviceDetailPartners && (
-          <Swiper
-            slidesPerView={1}
-            spaceBetween={10}
-            loop={true}
-            autoplay={{ delay: 1000, disableOnInteraction: false }}
-            navigation
-            pagination={{ clickable: true }}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-          >
-            {serviceDetailPartners.map((partner) => (
-              <SwiperSlide key={partner.id}>
-                <img src={partner.image} alt="" />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
-      </div> */}
+      ></p>
+      <div className="grid grid-cols-3 mt-20 max-md:grid-cols-1 ">
+        <div></div>
+        <div className="">
+          {serviceDetailRedux.partners &&
+            serviceDetailRedux.partners.length > 0 && (
+              <Swiper
+                slidesPerView={1}
+                spaceBetween={10}
+                loop={true}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                navigation
+                pagination={{ clickable: true }}
+                onSwiper={(swiper) => (swiperRef.current = swiper)}
+              >
+                {serviceDetailRedux.partners.map((partner, index) => (
+                  <SwiperSlide key={index}>
+                    <div className="flex justify-center items-center bg-white w-full h-[200px] ">
+                      <img src={partner.image} alt="" />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            )}
+        </div>
+        <div></div>
+      </div>
     </div>
   );
 }
