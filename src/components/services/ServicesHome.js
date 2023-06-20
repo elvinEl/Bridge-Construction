@@ -19,7 +19,7 @@ function ServicesHome() {
       <p className="text-[1.25rem] text-[#6c757d] max-md:text-[1.25rem]">{t("Nə təklif edirik!")} </p>
       <p className="text-black font-bold text-[2.5rem] mb-8 max-md:text-[1.8rem]">{t("Xidmətlərimiz")}</p>
       <div
-        className="grid grid-cols-3 gap-4 max-md:grid-cols-1"
+        className="grid grid-cols-3 max-lg:grid-cols-2 gap-4 max-md:grid-cols-1"
         data-aos="fade-right"
       >
         {Object.keys(slice).map((key) => (

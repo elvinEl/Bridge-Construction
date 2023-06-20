@@ -108,8 +108,8 @@ img.active {
   top: 50%;
   left: 20%;
   transform: translate(-50%, -50%);
-  width: 280px;
-  height: 330px;
+  width: 310px;
+  height: 350px;
   border: 7px solid white;
 }
 .position-div {
@@ -123,6 +123,7 @@ img.active {
   top: 50%;
   left: 14%;
   transform: translate(0%, -50%);
+  z-index: 99;
 }
 a.active::after {
   content: "";

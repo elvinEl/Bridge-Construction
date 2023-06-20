@@ -1,0 +1,51 @@
+.slide-container {
+  position: relative;
+}
+
+.caption {
+  position: absolute;
+  top: 50%;
+  left: 14%;
+  transform: translate(0%, -50%);
+  color: black;
+  font-size: 3rem;
+  font-weight: bold;
+  padding: 10px;
+  width: 80%;
+  /* max-width: 400px; */
+  box-sizing: border-box;
+  z-index: 99;
+}
+
+.caption.active {
+  display: block;
+}
+
+.caption.inactive {
+  display: none;
+}
+.quadrangle_home::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 310px;
+  height: 350px;
+  border: 7px solid white;
+  z-index: 98;
+}
+
+.from-below{
+  position: relative;
+  bottom: -100px;
+  animation: slide-up 1s forwards;
+}
+@keyframes slide-up {
+  0% {
+    bottom: -100px;
+  }
+  100% {
+    bottom: 0;
+  }
+}
