@@ -12,9 +12,7 @@ function Fixed() {
           adipisicing elit. Amet, non maxime quas aut sit inventore incidunt
           animi sequi.
         </p>
-        {/* <div>
-          <button className="px-4 py-2 mt-3 text-[0.875rem] bg-[#dc3545] hover:bg-[#c82333] duration-300 ">Order Now</button>
-        </div> */}
+
      </div>
         
       </div>

@@ -33,7 +33,7 @@ function AboutHome() {
                   }}
                 ></p>
               </div>
-              <div className="col-span-1 flex justify-end max-md:block">
+              <div className="col-span-1 flex justify-end max-md:block overflow-hidden">
                 <div
                   className="max-w-[80%] max-lg:max-w-full"
                   data-aos="fade-left"

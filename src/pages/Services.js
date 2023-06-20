@@ -2,10 +2,14 @@ import React from "react";
 import ServicesComponent from "../components/services/ServicesComponent";
 import Fixed from "../components/AboutComponents/fixedContent/Fixed";
 import { useTranslation } from "react-i18next";
+import Helmet from 'react-helmet'
 function Services() {
   const { t } = useTranslation();
   return (
     <div>
+      <Helmet>
+        <title>{t("Xidmətlər")}</title>
+      </Helmet>
       <div className="bg-image-services  min-h-[100vh] bg-cover"></div>
       <div className="max-w-[80%] mx-auto ">
         <div className="quadrangle">

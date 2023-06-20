@@ -70,13 +70,11 @@ const Partners = () => {
   };
 
   return (
-    <div className=" mt-20 ">
+    <div className="mt-20">
       <br />
-
-      <div className="max-w-[80%] mx-auto py-12 max-lg:max-w-[90%] ">
+      <div className=" max-w-[80%] mx-auto py-12 px-4 max-lg:max-w-[90%] ">
         <p className="text-black font-bold text-[2.5rem] mb-8 max-md:text-[1.8rem]">
-        {t("Partnyorlar")}
-          
+          {t("Partnyorlar")}
         </p>
         {slideData.length > 0 ? (
           <Swiper
@@ -91,9 +89,9 @@ const Partners = () => {
           >
             {slideData.map((slide, index) => (
               <SwiperSlide key={index} onClick={handleSlideClick}>
-                <div className="flex justify-center items-center bg-white w-full gap-8 bg-contain h-[200px] ">
+                <div className="gray flex justify-center items-center bg-white w-full  bg-contain h-[200px] ">
                   <img
-                    className="w-full opacity-50 hover:opacity-100 duration-300"
+                    className=" w-full "
                     src={slide.image}
                     alt=""
                   />

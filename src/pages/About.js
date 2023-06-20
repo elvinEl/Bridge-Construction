@@ -7,10 +7,14 @@ import Certifcate from "../components/certifcates/Certifcate";
 import Fixed from "../components/AboutComponents/fixedContent/Fixed";
 import Partners from "../components/partners/Partners";
 import { useTranslation } from "react-i18next";
+import Helmet from "react-helmet";
 function About() {
   const { t, i18n } = useTranslation();
   return (
     <div>
+      <Helmet>
+        <title>{t("Haqqımızda")}</title>
+      </Helmet>
       <div className="bg-image-about  min-h-[100vh] bg-cover"></div>
       <div className="quadrangle">
         <div className="elvin ">

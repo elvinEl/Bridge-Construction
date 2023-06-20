@@ -33,7 +33,7 @@ function ServicesDetails() {
   }, [serviceDetailRedux.partners]);
 
   return (
-    <div className="pt-20 max-w-[80%] mx-auto min-h-[70vh]">
+    <div className="pt-20 max-w-[80%] mx-auto min-h-[70vh] max-lg:max-w-[90%] max-md:max-w-[95%]">
       <p className="flex justify-center text-[#ec0e0e] font-bold text-[24px]">
         {serviceDetailRedux.content && serviceDetailRedux.content.title}
       </p>
