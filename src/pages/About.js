@@ -17,7 +17,7 @@ function About() {
       </Helmet>
       <div className="bg-image-about  min-h-[100vh] bg-cover"></div>
       <div className="quadrangle">
-        <div className="elvin ">
+        <div className="quadrangle_text">
           <p className="text-[#ec0e0e]">{t("Haqqımızda")}</p>
           <p className="text-[3.5rem] font-bold  max-md:text-[3rem]">
             {t("Yaradıcı")}{" "}

@@ -72,7 +72,7 @@ const Partners = () => {
   return (
     <div className="mt-20">
       <br />
-      <div className=" max-w-[80%] mx-auto py-12 px-4 max-lg:max-w-[90%] ">
+      <div className=" max-w-[80%] mx-auto py-12  max-lg:max-w-[90%] max-md:max-w-[95%]">
         <p className="text-black font-bold text-[2.5rem] mb-8 max-md:text-[1.8rem]">
           {t("Partnyorlar")}
         </p>

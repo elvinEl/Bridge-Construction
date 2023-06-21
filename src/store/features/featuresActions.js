@@ -10,7 +10,6 @@ export const fetchFeatures = createAsyncThunk(
         language: payload.language,
       },
     });
-console.log(response,"elvinjsn;lvndfvnd");
     return response.data;
   }
 );

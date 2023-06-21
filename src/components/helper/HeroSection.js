@@ -1,9 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "../../styles/sliderHero.css";
-
+import { useTranslation } from "react-i18next";
+import axios from "axios";
 function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [slideContent, setSlideContent] = useState([]);
+  const { t } = useTranslation();
+  const baseUrl = process.env.REACT_APP_BASE_URL;
+  console.log(baseUrl);
+
+  useEffect(() => {
+    const fetchSlideContent = async () => {
+      try {
+        const response = await axios.get(`${baseUrl}/sliders`);
+        setSlideContent(response.data);
+      } catch (error) {
+        console.log("API ERROR", error);
+      }
+    };
+    fetchSlideContent();
+  }, []);
 
   const settings = {
     infinite: true,
@@ -17,24 +34,6 @@ function HeroSection() {
     beforeChange: (current, next) => setCurrentSlide(next),
   };
 
-  const slideContent = [
-    {
-      image: "./assets/hero/h.jpg",
-      caption: "Interiyer Və Eksteriyer ",
-      captionhelper: "Həlləri",
-    },
-    {
-      image: "./assets/hero/h1.jpg",
-      caption: "Mega",
-      captionhelper: "Strukturlar",
-    },
-    {
-      image: "./assets/hero/h2.jpg",
-      caption: "Körpü və Yol",
-      captionhelper: "Tikintiləri",
-    },
-  ];
-
   return (
     <div className="max-w-[100%] object-cover mx-auto relative max-md:max-w-full select-none">
       <Slider {...settings}>
@@ -43,7 +42,7 @@ function HeroSection() {
             <div className="slide-container">
               <div className="quadrangle_home">
                 <img
-                  className={`w-[100%] ${
+                  className={`w-[100%]  max-lg:h-[80vh] object-cover ${
                     currentSlide === index ? "active" : "inactive"
                   }`}
                   src={slide.image}
@@ -54,12 +53,15 @@ function HeroSection() {
                     currentSlide === index ? "active" : "inactive"
                   }`}
                 >
-                  <p>{slide.caption}</p>
+                  <p className="from-above">{slide.title}</p>
                   <div className="relative">
                     <div className="overflow-hidden">
-                      <p className="from-below bg-[#ec0e0e] text-white px-4 py-1 font-bold inline-block text-[2.5rem] max-md:text-[2.5rem]">
-                        {slide.captionhelper}
-                      </p>
+                      <p
+                        className="from-below bg-[#ec0e0e] text-white px-4 py-1 font-bold inline-block text-[2.5rem] max-md:text-[2.5rem]"
+                        dangerouslySetInnerHTML={{
+                          __html: slide.description,
+                        }}
+                      ></p>
                     </div>
                   </div>
                 </div>

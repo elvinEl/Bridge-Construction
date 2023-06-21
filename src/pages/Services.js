@@ -13,7 +13,7 @@ function Services() {
       <div className="bg-image-services  min-h-[100vh] bg-cover"></div>
       <div className="max-w-[80%] mx-auto ">
         <div className="quadrangle">
-          <div className="elvin ">
+          <div className="quadrangle_text">
             <p className="text-[#ec0e0e]">{t("Bizim Xidmətlərimiz")} </p>
             <p className="text-[3.5rem] font-bold max-md:text-[3rem]">{t("Ağıllı")} </p>
             <p className="bg-[#ec0e0e] text-white px-4 py-1 font-bold inline-block text-[3.5rem] max-md:text-[2.5rem]">

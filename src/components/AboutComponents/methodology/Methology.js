@@ -7,7 +7,6 @@ function Methology() {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const methodologyRedux = useSelector((state) => state.methodology.methodologyData);
-  console.log(methodologyRedux);
   useEffect(() => {
     const language = i18n.language;
     dispatch(fetchMethodology({ language }));

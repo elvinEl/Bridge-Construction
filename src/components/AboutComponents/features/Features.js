@@ -7,7 +7,6 @@ function Features() {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const featuresRedux = useSelector((state) => state.features.featuresData);
-  console.log(featuresRedux);
   useEffect(() => {
     const language = i18n.language;
     dispatch(fetchFeatures({ language }));

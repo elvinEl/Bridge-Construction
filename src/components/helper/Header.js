@@ -35,14 +35,14 @@ function Header() {
     showNavbar(!showNavbar);
   };
   return (
-    <header className="relative max-w-[80%] mx-auto z-50">
+    <header className="relative max-w-[80%] max-md:max-w-[90%] mx-auto z-50">
       <div>
         <div className="pt-2 absolute min-w-full">
           <div className="container1">
             <div>
               <img src="" alt="" />
             </div>
-            <nav ref={navRef} className="min-w-full flex justify-between">
+            <nav ref={navRef} className="z-50 min-w-full flex justify-between">
               <ul className="gap-x-5 flex max-md:flex-col max-md:gap-4">
                 <NavLink
                   onClick={clickHandle}

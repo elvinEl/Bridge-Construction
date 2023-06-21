@@ -10,7 +10,6 @@ export const fetchMethodology = createAsyncThunk(
         language: payload.language,
       },
     });
-console.log(response);
     return response.data;
   }
 );

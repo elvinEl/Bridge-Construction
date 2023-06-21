@@ -7,8 +7,6 @@ function AboutHome() {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const aboutRedux = useSelector((state) => state.about.aboutData);
-  console.log(aboutRedux);
-
   useEffect(() => {
     const language = i18n.language;
     dispatch(fetchAbout({ language }));
