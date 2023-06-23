@@ -10,11 +10,12 @@ const Partners = () => {
   const [slideData, setSlideData] = useState([]);
   const [swiper, setSwiper] = useState(null);
   const swiperRef = useRef(null);
+  const baseUrl = process.env.REACT_APP_BASE_URL
   const [slidesPerView, setSlidesPerView] = useState(3);
   useEffect(() => {
     const fetchSlideData = async () => {
       try {
-        const response = await fetch("http://10.138.1.35:8000/api/v1/partners");
+        const response = await fetch(`${baseUrl}/partners`);
         const data = await response.json();
         setSlideData(data);
       } catch (error) {

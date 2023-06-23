@@ -8,7 +8,6 @@ function HeroSection() {
   const [slideContent, setSlideContent] = useState([]);
   const { t } = useTranslation();
   const baseUrl = process.env.REACT_APP_BASE_URL;
-  console.log(baseUrl);
 
   useEffect(() => {
     const fetchSlideContent = async () => {

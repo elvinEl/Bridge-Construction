@@ -7,6 +7,7 @@ import { ImQuotesLeft } from "react-icons/im";
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 const Partners = () => {
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const [slideData, setSlideData] = useState([]);
   const [swiper, setSwiper] = useState(null);
   const swiperRef = useRef(null);
@@ -14,7 +15,7 @@ const Partners = () => {
   useEffect(() => {
     const fetchSlideData = async () => {
       try {
-        const response = await fetch("http://10.138.1.35:8000/api/v1/comments");
+        const response = await fetch(`${baseUrl}/comments`);
         const data = await response.json();
         setSlideData(data);
       } catch (error) {

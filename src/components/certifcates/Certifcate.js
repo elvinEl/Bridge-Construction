@@ -5,14 +5,15 @@ import axios from "axios";
 import { useTranslation } from "react-i18next";
 
 function Certifcate() {
+  const baseUrl = process.env.REACT_APP_BASE_URL
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
   const [certificateData, setCertificateData] = useState([])
   const {t} = useTranslation()
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://10.138.1.35:8000/api/v1/certificates"); // API_URL, kullanacağınız API'nin URL'si ile değiştirilmelidir
-      const data = response.data; // API'den alınan veri response.data üzerinde bulunabilir
+      const response = await axios.get(`${baseUrl}/certificates`); 
+      const data = response.data;
       setCertificateData(data);
     } catch (error) {
       console.log(error);
