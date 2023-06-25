@@ -5,6 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
+import CloseIcon from "@mui/icons-material/Close"; // Close icon ekledik
 
 const style = {
   position: "absolute",
@@ -27,8 +28,8 @@ export default function BasicModal() {
     surname: "",
     phone: "",
   });
-  const notify = () => toast("Mesajınız göndərildi");
-  const errorNotify = () => toast("Mesajınız göndərilmədi !");
+  const notify = () => toast("Mesajınız gönderildi");
+  const errorNotify = () => toast("Mesajınız gönderilmedi!");
 
   const handleInputChange = (event) => {
     setFormData({
@@ -93,6 +94,9 @@ export default function BasicModal() {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          <div className="flex justify-end"> 
+            <CloseIcon onClick={handleClose} className="cursor-pointer" />
+          </div>
           <div>
             <p className="font-bold pb-4">{t("Zəng Sifarişi")}</p>
             <form onSubmit={handleSubmit}>
@@ -128,7 +132,7 @@ export default function BasicModal() {
                 />
               </div>
               <button className="bg-blue-500 text-white mt-4 w-full py-1 font-bold">
-                 {t("Göndər")}
+                {t("Göndər")}
               </button>
             </form>
           </div>

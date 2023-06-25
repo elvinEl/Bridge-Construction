@@ -70,7 +70,7 @@ function Certifcate() {
         {certificateData.map((item, index) => (
           <div
             key={index}
-            className="wrapper-images certifcate-image cursor-pointer"
+            className="wrapper-images certifcate-image cursor-zoom-in"
             data-aos="fade-up"
           >
             <img
