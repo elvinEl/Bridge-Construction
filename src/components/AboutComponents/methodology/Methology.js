@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchMethodology } from "../../../store/methology/methodologyActions";
@@ -22,7 +22,7 @@ function Methology() {
         data-aos="fade-right"
       >
         {Object.keys(methodologyRedux).map((key) => (
-          <div className={`about/${methodologyRedux[key].general_key}`}>
+          <div key={key} className={`about/${methodologyRedux[key].general_key}`}>
             <div className="col-span-1 " data-aos="fade-up">
               <img src={methodologyRedux[key].image} alt="" />
               <p className=" text-[#6c757d] text-[1.7rem] mb-2 ">

@@ -1,29 +1,29 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "./modal/Modal";
 import "../../styles/zoom.css";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 
 function Certifcate() {
-  const baseUrl = process.env.REACT_APP_BASE_URL
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const [clickedImg, setClickedImg] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(null);
-  const [certificateData, setCertificateData] = useState([])
-  const {t} = useTranslation()
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`${baseUrl}/certificates`); 
-      const data = response.data;
-      setCertificateData(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
+  const [certificateData, setCertificateData] = useState([]);
+  const { t } = useTranslation();
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${baseUrl}/certificates`);
+        const data = response.data;
+        setCertificateData(data);
+      } catch (error) {
+        console.error("Error");
+      }
+    };
+
     fetchData();
-  }, []);
-  
+  }, [fetchData]);
+
   const handleClick = (item, index) => {
     setCurrentIndex(index);
     setClickedImg(item.image);
@@ -65,7 +65,10 @@ function Certifcate() {
 
   return (
     <div className="max-w-[80%] mx-auto mt-20 max-md:max-w-[95%] max-lg:max-w-[90%]">
-      <p className="text-black font-bold text-[2.5rem] mb-8 max-md:text-[1.8rem]"> {t("Sertifkatlarımız")}</p>
+      <p className="text-black font-bold text-[2.5rem] mb-8 max-md:text-[1.8rem]">
+        {" "}
+        {t("Sertifkatlarımız")}
+      </p>
       <div className="grid grid-cols-3 max-lg:grid-cols-2  max-md:grid-cols-1 gap-8">
         {certificateData.map((item, index) => (
           <div

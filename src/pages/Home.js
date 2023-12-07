@@ -1,10 +1,10 @@
 import React from "react";
 import AboutHome from "../components/about/AboutHome";
-import Certifcate from "../components/certifcates/Certifcate";
+// import Certifcate from "../components/certifcates/Certifcate";
 import HeroSection from "../components/helper/HeroSection";
 import ServicesHome from "../components/services/ServicesHome";
 import Partners from "../components/partners/Partners";
-import CommentsApi from "../components/comments/CommentsApi";
+// import CommentsApi from "../components/comments/CommentsApi";
 import Modal from "../components/Modal";
 import Helmet from "react-helmet";
 import { useTranslation } from "react-i18next";
@@ -18,8 +18,8 @@ function Home() {
       <HeroSection />
       <AboutHome />
       <ServicesHome />
-      <CommentsApi />
-      <Certifcate />
+      {/* <CommentsApi /> */}
+      {/* <Certifcate /> */}
       <Partners />
       <Modal />
     </div>

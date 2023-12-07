@@ -23,7 +23,7 @@ function ServicesHome() {
         data-aos="fade-right"
       >
         {Object.keys(slice).map((key) => (
-          <Link to={`services/${servicesRedux[key].general_key}`}>
+          <Link key={key} to={`services/${servicesRedux[key].general_key}`}>
             <img src={servicesRedux[key].image} alt="" />
             <p className="font-bold text-black text-[17px] mb-2 max-md:text-[16px]">{servicesRedux[key].title}</p>
             <p className="text-[#6c757d] line-clamp-3 max-md:text-[15px]" dangerouslySetInnerHTML={{__html:servicesRedux[key].description}}></p>

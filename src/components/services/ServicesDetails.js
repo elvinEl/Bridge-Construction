@@ -4,15 +4,13 @@ import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchServicesById } from "../../store/services/serviceActions";
 import SwiperCore, { Autoplay, Pagination, Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper.min.css";
 
 SwiperCore.use([Autoplay, Pagination, Navigation]);
 
 function ServicesDetails() {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const { general_key } = useParams();
-  const serviceR = useSelector((state) => state.service.serviceData);
   const dispatch = useDispatch();
   const serviceDetailRedux = useSelector(
     (state) => state.serviceDetail.serviceDataDetail
@@ -33,19 +31,32 @@ function ServicesDetails() {
   }, [serviceDetailRedux.partners]);
 
   return (
-    <div className="pt-20 max-w-[80%] mx-auto min-h-[70vh] max-lg:max-w-[90%] max-md:max-w-[95%]">
-      <p className="flex justify-center text-[#ec0e0e] font-bold text-[24px]">
-        {serviceDetailRedux.content && serviceDetailRedux.content.title}
-      </p>
-      <p
-        className="flex justify-start text-black text-[18px] mt-12"
-        dangerouslySetInnerHTML={{
-          __html:
-            serviceDetailRedux.content &&
-            serviceDetailRedux.content.description,
-        }}
-      ></p>
-      <div className="grid grid-cols-3 mt-20 max-md:grid-cols-1 ">
+    <div>
+      <div className="bg-image-contact  min-h-[100vh] bg-cover"></div>
+      <div className="quadrangle">
+        <div className="quadrangle_text">
+          <p className="text-[#db4e28]"> {t("Xidmətlər")}</p>
+          <p className="text-[3.5rem]  font-bold max-md:text-[2rem]">
+            {" "}
+            {serviceDetailRedux.content && serviceDetailRedux.content.title}
+          </p>
+        </div>
+      </div>
+      <div className="pt-20 max-w-[80%] mx-auto min-h-[70vh] max-lg:max-w-[90%] max-md:max-w-[95%]">
+        <p className="flex justify-center text-[#ec0e0e] font-bold text-[24px]">
+          {serviceDetailRedux.content && serviceDetailRedux.content.title}
+        </p>
+        <div
+          className=" text-black text-[18px] mt-12 deco"
+          dangerouslySetInnerHTML={{
+            __html:
+              serviceDetailRedux.content &&
+              serviceDetailRedux.content.description,
+          }}
+          
+        ></div>
+      
+        {/* <div className="grid grid-cols-3 mt-20 max-md:grid-cols-1 ">
         <div></div>
         <div className="">
           {serviceDetailRedux.partners &&
@@ -70,6 +81,7 @@ function ServicesDetails() {
             )}
         </div>
         <div></div>
+      </div> */}
       </div>
     </div>
   );

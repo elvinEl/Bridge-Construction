@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { fetchFeatures } from "../../../store/features/featuresActions";
@@ -23,7 +23,7 @@ function Features() {
         data-aos="fade-right"
       >
         {Object.keys(featuresRedux).map((key) => (
-          <div className={`about/${featuresRedux[key].general_key}`}>
+          <div key={key} className={`about/${featuresRedux[key].general_key}`}>
             <div className="col-span-1">
               <p className=" text-black text-[17px] font-bold mb-2">
                 {featuresRedux[key].title}

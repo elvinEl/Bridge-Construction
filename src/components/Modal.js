@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import CloseIcon from "@mui/icons-material/Close"; // Close icon ekledik
+import CloseIcon from "@mui/icons-material/Close"; 
 
 const style = {
   position: "absolute",
@@ -41,11 +41,11 @@ export default function BasicModal() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const url = "http://10.138.1.35:8000/api/v1/contact";
+    const url = "https://brick-api.capitalist.az/api/v1/contact";
     const XStaticToken = "b@b!um1JBF4rRs#gGskv^SaFC5@DX68y";
 
     try {
-      const response = await axios
+    await axios
         .post(url, formData, {
           headers: {
             XStaticToken: XStaticToken,
@@ -77,7 +77,7 @@ export default function BasicModal() {
   };
 
   return (
-    <div className="flex items-center bg-yellow-400 justify-center gap-12 py-4 mt-20">
+    <div className="flex items-center bg-[#ff5f32] justify-center gap-12 py-4 mt-20">
       <p className="text-white font-bold text-[2rem]  max-md:text-[1rem]">
         {t("Sualınız varsa biz sizə")}
       </p>
@@ -131,7 +131,7 @@ export default function BasicModal() {
                   type="number"
                 />
               </div>
-              <button className="bg-blue-500 text-white mt-4 w-full py-1 font-bold">
+              <button className="bg-[#ff5f32] text-white mt-4 w-full py-1 font-bold">
                 {t("Göndər")}
               </button>
             </form>

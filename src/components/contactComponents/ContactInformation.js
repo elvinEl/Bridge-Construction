@@ -25,7 +25,7 @@ function ContactInformation() {
       </p>
       <div data-aos="fade-right">
         {Object.keys(contactRedux).map((key) => (
-          <div className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 max-md:mt-4">
+          <div key={key} className="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 max-md:mt-4">
             <div className="col-span-1 mt-4 flex">
               <div>
                 <img src={contactRedux[key].logo} alt="" />

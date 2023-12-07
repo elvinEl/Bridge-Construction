@@ -9,10 +9,7 @@ import { useTranslation } from "react-i18next";
 import { fetchContact } from "../../store/contact/contactActions";
 import { fetchServices } from "../../store/services/serviceActions";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 function Footer() {
-  const {general_key} = useParams();
-  const baseUrl = process.env.REACT_APP_BASE_URL;
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const servicesRedux = useSelector((state) => state.service.serviceData);
@@ -25,12 +22,13 @@ function Footer() {
   return (
     <div>
       {Object.keys(contactRedux).map((key) => (
-        <div className="bg-white max-w-[80%] mx-auto grid grid-cols-4 my-12 gap-2 max-md:grid-cols-1 max-md:max-w-[95%]">
+        <div key={key} className="bg-white max-w-[80%] mx-auto grid grid-cols-4 my-12 gap-2 max-md:grid-cols-1 max-md:max-w-[95%]">
           <div className="col-span-1">
             <p className="">{t("Sosial Media")}</p>
 
             <div className="flex gap-4">
               <a
+               rel="noopener noreferrer"
                 className="bg-white rounded-full px-2 py-2 hover:rotate-180 duration-500 max-md:hover:rotate-0"
                 target="_blank"
                 href={contactRedux[key].instagram}
@@ -43,6 +41,7 @@ function Footer() {
               <a
                 className="bg-white rounded-full px-2 py-2 hover:rotate-180 duration-500 max-md:hover:rotate-0"
                 target="_blank"
+                rel="noopener noreferrer"
                 href={contactRedux[key].facebook}
               >
                 <span className="text-[26px] text-yellow-500">
@@ -64,7 +63,7 @@ function Footer() {
             <p>{t("Xidmətlər")} </p>
             <div className="flex flex-col mt-4 font-light  text-[15px]">
               {Object.keys(servicesRedux).map((key) => (
-                <Link to={`services/${servicesRedux[key].general_key}`}>
+                <Link key={key} to={`services/${servicesRedux[key].general_key}`}>
                   {servicesRedux[key].title}
                 </Link>
               ))}

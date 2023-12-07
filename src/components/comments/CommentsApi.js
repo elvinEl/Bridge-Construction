@@ -19,11 +19,11 @@ const Partners = () => {
         const data = await response.json();
         setSlideData(data);
       } catch (error) {
-        console.log("API çağrısı sırasında bir hata oluştu:", error);
+        console.error("Error");
       }
     };
     fetchSlideData();
-  }, []);
+  }, [baseUrl]);
 
   useEffect(() => {
     const updateSlidesPerView = () => {
@@ -58,7 +58,6 @@ const Partners = () => {
 
   const handleSlideChange = () => {
     if (swiperRef.current && swiperRef.current.isEnd) {
-      // Slaytın sonuna gelindiğinde, slideData dizisini sonsuz döngüye sokmak için yeniden düzenliyoruz
       setSlideData((prevData) => [...prevData.slice(1), prevData[0]]);
     }
   };

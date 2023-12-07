@@ -10,7 +10,7 @@ const Partners = () => {
   const [slideData, setSlideData] = useState([]);
   const [swiper, setSwiper] = useState(null);
   const swiperRef = useRef(null);
-  const baseUrl = process.env.REACT_APP_BASE_URL
+  const baseUrl = process.env.REACT_APP_BASE_URL;
   const [slidesPerView, setSlidesPerView] = useState(3);
   useEffect(() => {
     const fetchSlideData = async () => {
@@ -19,12 +19,12 @@ const Partners = () => {
         const data = await response.json();
         setSlideData(data);
       } catch (error) {
-        console.log("API çağrısı sırasında bir hata oluştu:", error);
+        console.error("Error");
       }
     };
 
     fetchSlideData();
-  }, []);
+  }, [baseUrl]);
 
   useEffect(() => {
     const updateSlidesPerView = () => {
@@ -59,7 +59,6 @@ const Partners = () => {
 
   const handleSlideChange = () => {
     if (swiperRef.current && swiperRef.current.isEnd) {
-      // Slaytın sonuna gelindiğinde, slideData dizisini sonsuz döngüye sokmak için yeniden düzenliyoruz
       setSlideData((prevData) => [...prevData.slice(1), prevData[0]]);
     }
   };
@@ -91,11 +90,7 @@ const Partners = () => {
             {slideData.map((slide, index) => (
               <SwiperSlide key={index} onClick={handleSlideClick}>
                 <div className="gray flex justify-center items-center bg-white w-full  bg-contain h-[200px] ">
-                  <img
-                    className=" w-full "
-                    src={slide.image}
-                    alt=""
-                  />
+                  <img className=" w-full " src={slide.image} alt="" />
                 </div>
               </SwiperSlide>
             ))}

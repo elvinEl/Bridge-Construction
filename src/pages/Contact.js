@@ -21,12 +21,12 @@ function Contact() {
       <div className="bg-image-contact  min-h-[100vh] bg-cover"></div>
       <div className="quadrangle">
         <div className="quadrangle_text">
-          <p className="text-[#ec0e0e]"> {t("Əlaqə")}</p>
+          <p className="text-[#db4e28]"> {t("Əlaqə")}</p>
           <p className="text-[3.5rem] font-bold max-md:text-[3rem]">
             {" "}
             {t("Bizimlə")}
           </p>
-          <p className="bg-[#ec0e0e] text-white px-4 py-1 font-bold inline-block text-[3.5rem] max-md:text-[2.5rem]">
+          <p className="bg-[#db4e28] text-white px-4 py-1 font-bold inline-block text-[3.5rem] max-md:text-[2.5rem]">
             {t("Qal")}
           </p>
         </div>
@@ -34,13 +34,15 @@ function Contact() {
       <ContactInformation />
       <ContactForm />
       <div className="max-w-full mx-auto mt-20">
-        {Object.keys(contactRedux).map((key)=>(
-        <iframe
-          src={contactRedux[key].address_link}
-          width="100%"
-          className=""
-          height="450"
-        ></iframe>
+        {Object.keys(contactRedux).map((key) => (
+          <iframe
+          key={key}
+            src={contactRedux[key].address_link}
+            width="100%"
+            className=""
+            title="map"
+            height="450"
+          ></iframe>
         ))}
       </div>
       <Fixed />

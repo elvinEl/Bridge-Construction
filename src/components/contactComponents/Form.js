@@ -24,11 +24,11 @@ const Form = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const url = "http://10.138.1.35:8000/api/v1/contact";
+    const url = "https://brick-api.capitalist.az/api/v1/contact";
     const XStaticToken = "b@b!um1JBF4rRs#gGskv^SaFC5@DX68y";
 
     try {
-      const response = await axios
+      await axios
         .post(url, formData, {
           headers: {
             XStaticToken: XStaticToken,
@@ -66,7 +66,9 @@ const Form = () => {
         <img className="w-full h-full" src="./assets/contact/c2.jpg" alt="" />
       </div>
       <div className="col-span-1" data-aos="fade-left">
-        <p className="font-bold text-[2.5rem] max-md:text-[1.8rem]">{t("Mesaj Göndər")}</p>
+        <p className="font-bold text-[2.5rem] max-md:text-[1.8rem]">
+          {t("Əlaqə üçün")}
+        </p>
         <form className=" flex flex-col max-md:mt-4" onSubmit={handleSubmit}>
           <div className="relative z-0 mb-4">
             <input
@@ -75,15 +77,15 @@ const Form = () => {
               tabIndex="1"
               value={formData.name}
               onChange={handleInputChange}
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-[#db4e28] focus:outline-none focus:ring-0 focus:border-[#db4e28] peer"
               placeholder=" "
             />
             <label
               htmlFor="name-input"
-              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#db4e28] peer-focus:dark:text-[#db4e28] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               required
-            >{t("Ad")}
-              
+            >
+              {t("Ad")}
             </label>
           </div>
 
@@ -95,15 +97,15 @@ const Form = () => {
               value={formData.surname}
               onChange={handleInputChange}
               id="surname-input"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-[#db4e28] focus:outline-none focus:ring-0 focus:border-[#db4e28] peer"
               placeholder=" "
             />
             <label
               htmlFor="surname-input"
-              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#db4e28] peer-focus:dark:text-[#db4e28] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               required
-            >{t("Soyad")}
-             
+            >
+              {t("Soyad")}
             </label>
           </div>
 
@@ -115,15 +117,15 @@ const Form = () => {
               value={formData.phone}
               onChange={handleInputChange}
               id="phone-input"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-[#db4e28] focus:outline-none focus:ring-0 focus:border-[#db4e28] peer"
               placeholder=" "
             />
             <label
               htmlFor="phone-input"
-              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#db4e28] peer-focus:dark:text-[#db4e28] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               required
-            >{t("Nömrə")}
-              
+            >
+              {t("Nömrə")}
             </label>
           </div>
 
@@ -135,23 +137,23 @@ const Form = () => {
               value={formData.email}
               onChange={handleInputChange}
               id="email-input"
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-green-500 focus:outline-none focus:ring-0 focus:border-green-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-[#db4e28] focus:outline-none focus:ring-0 focus:border-[#db4e28] peer"
               placeholder=" "
             />
             <label
               htmlFor="email-input"
-              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-focus:dark:text-green-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+              className="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#db4e28] peer-focus:dark:text-[#db4e28] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
               required
-            >{t("E-Poçt")}
-              
+            >
+              {t("E-Poçt")}
             </label>
           </div>
           <div className="flex justify-end">
             <button
-              className="px-3 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+              className="px-3 py-2 bg-[#db4e28] text-white rounded hover:bg-[#E34316] duration-200"
               type="submit"
-            >{t("Göndər")}
-             
+            >
+              {t("Göndər")}
             </button>
           </div>
 

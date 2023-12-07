@@ -5,9 +5,9 @@ import '../../styles/fixedButtons.css'
 function ScrollTopFiexed() {
   return (
     <>
-      <button className="fixed z-50">
+      <div className="fixed z-50">
         <ScrollToTop color="white" className="max-md:w-[45px]  max-md:h-[45px]" smooth />
-      </button>
+      </div>
     </>
   );
 }

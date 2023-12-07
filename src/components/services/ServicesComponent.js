@@ -22,7 +22,7 @@ function ServicesComponent() {
         data-aos="fade-right"
       >
         {Object.keys(servicesRedux).map((key) => (
-          <Link to={`${servicesRedux[key].general_key}`}>
+          <Link key={key} to={`${servicesRedux[key].general_key}`}>
             <img src={servicesRedux[key].image} alt="" />
             <p className="font-bold text-black text-[16px] mb-2 line-clamp-3">
               {servicesRedux[key].title}
