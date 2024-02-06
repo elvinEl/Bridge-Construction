@@ -47,7 +47,7 @@ function ServicesDetails() {
           {serviceDetailRedux.content && serviceDetailRedux.content.title}
         </p>
         <div
-          className=" text-black text-[18px] mt-12 deco"
+          className=" text-black text-[18px] mt-12 max-w-[70%]"
           dangerouslySetInnerHTML={{
             __html:
               serviceDetailRedux.content &&
